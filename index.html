@@ -73,7 +73,7 @@
 
   function getData() {
     $('#cuerpo').html('')
-    axios.get('http://localhost:3000/deportes').then((data) => {
+    axios.get('https://clubdeportivo.herokuapp.com/deportes').then((data) => {
       let deportes = data.data.deportes
       deportes.forEach((d, i) => {
         $('#cuerpo').append(`
@@ -101,7 +101,7 @@
   function agregar() {
     let nombre = $('#nombre').val()
     let precio = $('#precio').val()
-    axios.get(`http://localhost:3000/agregar?nombre=${nombre}&precio=${precio}`).then((data) => {
+    axios.get(`https://clubdeportivo.herokuapp.com/agregar?nombre=${nombre}&precio=${precio}`).then((data) => {
       alert(data.data)
       getData()
     })
@@ -111,7 +111,7 @@
   function edit() {
     let nombre = $('#nombreModal').val()
     let precio = $('#precioModal').val()
-    axios.get(`http://localhost:3000/editar?nombre=${nombre}&precio=${precio}`).then((data) => {
+    axios.get(`https://clubdeportivo.herokuapp.com/editar?nombre=${nombre}&precio=${precio}`).then((data) => {
       alert(data.data)
       getData()
     })
@@ -119,7 +119,7 @@
   }
 
   function eliminar(nombre) {
-    axios.get(`http://localhost:3000/eliminar?nombre=${nombre}`).then((data) => {
+    axios.get(`https://clubdeportivo.herokuapp.com/eliminar?nombre=${nombre}`).then((data) => {
       alert(data.data)
       getData()
     })
